@@ -1,0 +1,15 @@
+---
+version: 2.1
+
+orbs:
+
+variables:
+
+commands:   
+
+jobs:
+  
+workflows:
+  build-artifact-1:       :
+    jobs:
+      - welcome/run
