@@ -1,0 +1,27 @@
+---
+version: 2.1
+
+orbs: 
+  welcome: circleci/welcome-orb@0.4.1
+
+no-run-filter: &no-run-filter
+  triggers:
+    - schedule:
+        cron: 1 1 1 1 1
+        filters:
+          branches:
+            only:
+              - no-run
+
+workflows:
+  trigger-by-git:
+    jobs:
+      - welcome/run             
+  build-artifact-1:
+    <<: *no-run-filter
+    jobs:
+      - welcome/run
+  build-artifact-2:
+    <<: *no-run-filter
+    jobs:
+      - welcome/run               
